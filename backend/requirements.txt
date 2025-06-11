@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+scikit-learn
+pydantic
+pandas
+joblib
+geoip2
+shap
+torch
