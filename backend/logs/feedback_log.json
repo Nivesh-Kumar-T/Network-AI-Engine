@@ -1,0 +1,122 @@
+[
+  {
+    "log": {
+      "timestamp": "06-06-2025 09:15",
+      "src_ip": "172.16.0.25",
+      "dst_ip": "172.16.0.100",
+      "src_port": 50125,
+      "dst_port": 21,
+      "protocol": 6,
+      "bytes_sent": 1024,
+      "bytes_received": 2048,
+      "flags": 24,
+      "duration": 2.5
+    },
+    "action": 0
+  },
+  {
+    "log": {
+      "timestamp": "06-06-2025 11:30",
+      "src_ip": "172.16.0.42",
+      "dst_ip": "172.16.0.100",
+      "src_port": 50342,
+      "dst_port": 21,
+      "protocol": 6,
+      "bytes_sent": 3072,
+      "bytes_received": 8192,
+      "flags": 24,
+      "duration": 6.2
+    },
+    "action": 0
+  },
+  {
+    "log": {
+      "timestamp": "06-06-2025 14:45",
+      "src_ip": "172.16.0.18",
+      "dst_ip": "172.16.0.100",
+      "src_port": 50418,
+      "dst_port": 21,
+      "protocol": 6,
+      "bytes_sent": 5120,
+      "bytes_received": 10240,
+      "flags": 24,
+      "duration": 8.0
+    },
+    "action": 0
+  },
+  {
+    "log": {
+      "timestamp": "06-06-2025 16:20",
+      "src_ip": "172.16.0.33",
+      "dst_ip": "172.16.0.100",
+      "src_port": 50533,
+      "dst_port": 21,
+      "protocol": 6,
+      "bytes_sent": 2048,
+      "bytes_received": 4096,
+      "flags": 24,
+      "duration": 3.8
+    },
+    "action": 0
+  },
+  {
+    "log": {
+      "timestamp": "06-06-2025 17:55",
+      "src_ip": "172.16.0.27",
+      "dst_ip": "172.16.0.100",
+      "src_port": 50627,
+      "dst_port": 21,
+      "protocol": 6,
+      "bytes_sent": 8192,
+      "bytes_received": 16384,
+      "flags": 24,
+      "duration": 12.5
+    },
+    "action": 0
+  },
+  {
+    "log": {
+      "timestamp": "06-06-2025 15:10",
+      "src_ip": "172.16.0.19",
+      "dst_ip": "172.16.0.100",
+      "src_port": 50009,
+      "dst_port": 21,
+      "protocol": 6,
+      "bytes_sent": 4096,
+      "bytes_received": 5120,
+      "flags": 24,
+      "duration": 4.11
+    },
+    "action": 0
+  },
+  {
+    "log": {
+      "timestamp": "07-06-2025 10:30",
+      "src_ip": "172.16.0.55",
+      "dst_ip": "172.16.0.100",
+      "src_port": 50755,
+      "dst_port": 21,
+      "protocol": 6,
+      "bytes_sent": 1536,
+      "bytes_received": 3072,
+      "flags": 24,
+      "duration": 3.2
+    },
+    "action": 0
+  },
+  {
+    "log": {
+      "timestamp": "07-06-2025 03:15",
+      "src_ip": "172.16.0.72",
+      "dst_ip": "172.16.0.100",
+      "src_port": 50872,
+      "dst_port": 21,
+      "protocol": 6,
+      "bytes_sent": 512,
+      "bytes_received": 1024,
+      "flags": 24,
+      "duration": 1.8
+    },
+    "action": 0
+  }
+]

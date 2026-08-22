@@ -1,0 +1,43 @@
+{
+  "initial_training": {
+    "timestamp": "2025-06-20T09:15:24.153862",
+    "loss": 384.6509,
+    "accuracy": 0.9234,
+    "precision": 0.838,
+    "recall": 0.9775,
+    "f1_score": 0.9024,
+    "samples": 80000,
+    "epochs": 10
+  },
+  "retrain_history": [],
+  "retraining_history": [
+    {
+      "timestamp": "2025-06-20T15:08:12.535112",
+      "feedback_samples": 8,
+      "epochs": 10,
+      "metrics": {
+        "loss": 25.9795,
+        "accuracy": 0.8735,
+        "precision": 0.9116,
+        "recall": 0.7206,
+        "f1_score": 0.805
+      }
+    },
+    {
+      "timestamp": "2025-06-20T20:19:07.959107",
+      "feedback_samples": 8,
+      "epochs": 10,
+      "metrics": {
+        "loss": 13.169,
+        "accuracy": 0.9243,
+        "precision": 0.9526,
+        "recall": 0.9224,
+        "f1_score": 0.9372
+      }
+    }
+  ],
+  "hit_counters": {
+    "whitelist": 1,
+    "blacklist": 10
+  }
+}

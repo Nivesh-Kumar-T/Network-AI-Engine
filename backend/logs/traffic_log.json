@@ -1,0 +1,838 @@
+[
+  {
+    "timestamp": "2026-04-16T11:56:09.783253",
+    "log_timestamp": "16-04-2026 11:56",
+    "src_ip": "172.20.10.1",
+    "dst_ip": "172.20.10.4",
+    "src_port": 44834,
+    "dst_port": 3001,
+    "protocol": 6,
+    "bytes_sent": 769,
+    "bytes_received": 4793,
+    "flags": 24,
+    "duration": 0.32,
+    "decision": "ALLOW",
+    "reason": "Allowed with confidence 0.9991",
+    "confidence": 0.9991,
+    "explanation": {
+      "decision": "ALLOW",
+      "confidence": 0.9991,
+      "summary": "Classified as normal based on: Bytes Sent (importance=0.2844); Destination Port (importance=0.2616); Connection Duration (seconds) (importance=0.0694)",
+      "key_factors": [
+        {
+          "feature": "Bytes Sent",
+          "value": 769.0,
+          "description": "Data volume: 769.0 B",
+          "importance": 0.2844
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.2616
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 0.32,
+          "description": "0.32 seconds",
+          "importance": 0.0694
+        }
+      ],
+      "all_features": [
+        {
+          "feature": "Source Port",
+          "value": 44834.0,
+          "description": "",
+          "importance": 0.0127
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.2616
+        },
+        {
+          "feature": "Protocol (6=TCP, 17=UDP, etc.)",
+          "value": 6.0,
+          "description": "",
+          "importance": 0.0199
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 769.0,
+          "description": "Data volume: 769.0 B",
+          "importance": 0.2844
+        },
+        {
+          "feature": "Bytes Received",
+          "value": 4793.0,
+          "description": "",
+          "importance": 0.0019
+        },
+        {
+          "feature": "TCP Flags (control bits)",
+          "value": 24.0,
+          "description": "PSH-ACK (Data push with acknowledgment)",
+          "importance": 0.0013
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 0.32,
+          "description": "0.32 seconds",
+          "importance": 0.0694
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 11.0,
+          "description": "Hour 11",
+          "importance": 0.0141
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-16T11:58:00.604603",
+    "log_timestamp": "06-06-2025 14:15",
+    "src_ip": "192.168.1.10",
+    "dst_ip": "10.0.0.5",
+    "src_port": 54321,
+    "dst_port": 80,
+    "protocol": 6,
+    "bytes_sent": 500,
+    "bytes_received": 15000,
+    "flags": 18,
+    "duration": 2.5,
+    "decision": "ALLOW",
+    "reason": "Allowed with confidence 1.0",
+    "confidence": 1.0,
+    "explanation": {
+      "decision": "ALLOW",
+      "confidence": 1.0,
+      "summary": "Classified as normal based on: Destination Port (importance=0.225); Bytes Sent (importance=0.1475); Hour of Day (0-23) (importance=0.0259)",
+      "key_factors": [
+        {
+          "feature": "Destination Port",
+          "value": 80.0,
+          "description": "HTTP",
+          "importance": 0.225
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 500.0,
+          "description": "Data volume: 500.0 B",
+          "importance": 0.1475
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 14.0,
+          "description": "Hour 14",
+          "importance": 0.0259
+        }
+      ],
+      "all_features": [
+        {
+          "feature": "Source Port",
+          "value": 54321.0,
+          "description": "",
+          "importance": 0.0138
+        },
+        {
+          "feature": "Destination Port",
+          "value": 80.0,
+          "description": "HTTP",
+          "importance": 0.225
+        },
+        {
+          "feature": "Protocol (6=TCP, 17=UDP, etc.)",
+          "value": 6.0,
+          "description": "",
+          "importance": 0.0144
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 500.0,
+          "description": "Data volume: 500.0 B",
+          "importance": 0.1475
+        },
+        {
+          "feature": "Bytes Received",
+          "value": 15000.0,
+          "description": "",
+          "importance": 0.019
+        },
+        {
+          "feature": "TCP Flags (control bits)",
+          "value": 18.0,
+          "description": "SYN-ACK (Connection establishment response)",
+          "importance": 0.0025
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 2.5,
+          "description": "2.50 seconds",
+          "importance": 0.0148
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 14.0,
+          "description": "Hour 14",
+          "importance": 0.0259
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-20T20:22:27.483183",
+    "log_timestamp": "06-06-2025 14:15",
+    "src_ip": "192.168.1.10",
+    "dst_ip": "10.0.0.5",
+    "src_port": 54321,
+    "dst_port": 80,
+    "protocol": 6,
+    "bytes_sent": 500,
+    "bytes_received": 15000,
+    "flags": 18,
+    "duration": 2.5,
+    "decision": "ALLOW",
+    "reason": "Allowed with confidence 1.0",
+    "confidence": 1.0,
+    "explanation": {
+      "decision": "ALLOW",
+      "confidence": 1.0,
+      "summary": "Classified as normal based on: Destination Port (importance=0.1449); Bytes Sent (importance=0.095); Hour of Day (0-23) (importance=0.0167)",
+      "key_factors": [
+        {
+          "feature": "Destination Port",
+          "value": 80.0,
+          "description": "HTTP",
+          "importance": 0.1449
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 500.0,
+          "description": "Data volume: 500.0 B",
+          "importance": 0.095
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 14.0,
+          "description": "Hour 14",
+          "importance": 0.0167
+        }
+      ],
+      "all_features": [
+        {
+          "feature": "Source Port",
+          "value": 54321.0,
+          "description": "",
+          "importance": 0.0088
+        },
+        {
+          "feature": "Destination Port",
+          "value": 80.0,
+          "description": "HTTP",
+          "importance": 0.1449
+        },
+        {
+          "feature": "Protocol (6=TCP, 17=UDP, etc.)",
+          "value": 6.0,
+          "description": "",
+          "importance": 0.0093
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 500.0,
+          "description": "Data volume: 500.0 B",
+          "importance": 0.095
+        },
+        {
+          "feature": "Bytes Received",
+          "value": 15000.0,
+          "description": "",
+          "importance": 0.0127
+        },
+        {
+          "feature": "TCP Flags (control bits)",
+          "value": 18.0,
+          "description": "SYN-ACK (Connection establishment response)",
+          "importance": 0.0016
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 2.5,
+          "description": "2.50 seconds",
+          "importance": 0.0091
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 14.0,
+          "description": "Hour 14",
+          "importance": 0.0167
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-20T20:33:09.240855",
+    "log_timestamp": "06-06-2025 14:15",
+    "src_ip": "192.168.1.10",
+    "dst_ip": "10.0.0.5",
+    "src_port": 54321,
+    "dst_port": 80,
+    "protocol": 6,
+    "bytes_sent": 500,
+    "bytes_received": 15000,
+    "flags": 18,
+    "duration": 2.5,
+    "decision": "ALLOW",
+    "reason": "Allowed with confidence 1.0",
+    "confidence": 1.0,
+    "explanation": {
+      "decision": "ALLOW",
+      "confidence": 1.0,
+      "summary": "Classified as normal based on: Destination Port (importance=0.1904); Bytes Sent (importance=0.1248); Hour of Day (0-23) (importance=0.0219)",
+      "key_factors": [
+        {
+          "feature": "Destination Port",
+          "value": 80.0,
+          "description": "HTTP",
+          "importance": 0.1904
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 500.0,
+          "description": "Data volume: 500.0 B",
+          "importance": 0.1248
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 14.0,
+          "description": "Hour 14",
+          "importance": 0.0219
+        }
+      ],
+      "all_features": [
+        {
+          "feature": "Source Port",
+          "value": 54321.0,
+          "description": "",
+          "importance": 0.0116
+        },
+        {
+          "feature": "Destination Port",
+          "value": 80.0,
+          "description": "HTTP",
+          "importance": 0.1904
+        },
+        {
+          "feature": "Protocol (6=TCP, 17=UDP, etc.)",
+          "value": 6.0,
+          "description": "",
+          "importance": 0.0121
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 500.0,
+          "description": "Data volume: 500.0 B",
+          "importance": 0.1248
+        },
+        {
+          "feature": "Bytes Received",
+          "value": 15000.0,
+          "description": "",
+          "importance": 0.0165
+        },
+        {
+          "feature": "TCP Flags (control bits)",
+          "value": 18.0,
+          "description": "SYN-ACK (Connection establishment response)",
+          "importance": 0.0022
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 2.5,
+          "description": "2.50 seconds",
+          "importance": 0.0122
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 14.0,
+          "description": "Hour 14",
+          "importance": 0.0219
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-20T20:35:44.605621",
+    "log_timestamp": "20-04-2026 20:35",
+    "src_ip": "192.168.1.8",
+    "dst_ip": "192.168.1.7",
+    "src_port": 54945,
+    "dst_port": 3001,
+    "protocol": 6,
+    "bytes_sent": 403,
+    "bytes_received": 2778,
+    "flags": 24,
+    "duration": 0.74,
+    "decision": "ALLOW",
+    "reason": "Allowed with confidence 0.9989",
+    "confidence": 0.9989,
+    "explanation": {
+      "decision": "ALLOW",
+      "confidence": 0.9989,
+      "summary": "Classified as normal based on: Bytes Sent (importance=0.1464); Destination Port (importance=0.1183); Hour of Day (0-23) (importance=0.0241)",
+      "key_factors": [
+        {
+          "feature": "Bytes Sent",
+          "value": 403.0,
+          "description": "Data volume: 403.0 B",
+          "importance": 0.1464
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.1183
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 20.0,
+          "description": "Hour 20",
+          "importance": 0.0241
+        }
+      ],
+      "all_features": [
+        {
+          "feature": "Source Port",
+          "value": 54945.0,
+          "description": "",
+          "importance": 0.015
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.1183
+        },
+        {
+          "feature": "Protocol (6=TCP, 17=UDP, etc.)",
+          "value": 6.0,
+          "description": "",
+          "importance": 0.0123
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 403.0,
+          "description": "Data volume: 403.0 B",
+          "importance": 0.1464
+        },
+        {
+          "feature": "Bytes Received",
+          "value": 2778.0,
+          "description": "",
+          "importance": 0.0054
+        },
+        {
+          "feature": "TCP Flags (control bits)",
+          "value": 24.0,
+          "description": "PSH-ACK (Data push with acknowledgment)",
+          "importance": 0.0008
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 0.74,
+          "description": "0.74 seconds",
+          "importance": 0.0141
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 20.0,
+          "description": "Hour 20",
+          "importance": 0.0241
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-20T20:36:19.163874",
+    "log_timestamp": "20-04-2026 20:36",
+    "src_ip": "192.168.1.8",
+    "dst_ip": "192.168.1.7",
+    "src_port": 46545,
+    "dst_port": 3001,
+    "protocol": 6,
+    "bytes_sent": 524,
+    "bytes_received": 5725,
+    "flags": 24,
+    "duration": 1.11,
+    "decision": "ALLOW",
+    "reason": "Allowed with confidence 0.9994",
+    "confidence": 0.9994,
+    "explanation": {
+      "decision": "ALLOW",
+      "confidence": 0.9994,
+      "summary": "Classified as normal based on: Bytes Sent (importance=0.1439); Destination Port (importance=0.1209); Hour of Day (0-23) (importance=0.038)",
+      "key_factors": [
+        {
+          "feature": "Bytes Sent",
+          "value": 524.0,
+          "description": "Data volume: 524.0 B",
+          "importance": 0.1439
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.1209
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 20.0,
+          "description": "Hour 20",
+          "importance": 0.038
+        }
+      ],
+      "all_features": [
+        {
+          "feature": "Source Port",
+          "value": 46545.0,
+          "description": "",
+          "importance": 0.0091
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.1209
+        },
+        {
+          "feature": "Protocol (6=TCP, 17=UDP, etc.)",
+          "value": 6.0,
+          "description": "",
+          "importance": 0.011
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 524.0,
+          "description": "Data volume: 524.0 B",
+          "importance": 0.1439
+        },
+        {
+          "feature": "Bytes Received",
+          "value": 5725.0,
+          "description": "",
+          "importance": 0.0015
+        },
+        {
+          "feature": "TCP Flags (control bits)",
+          "value": 24.0,
+          "description": "PSH-ACK (Data push with acknowledgment)",
+          "importance": 0.0007
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 1.11,
+          "description": "1.11 seconds",
+          "importance": 0.0005
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 20.0,
+          "description": "Hour 20",
+          "importance": 0.038
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-20T20:36:22.044664",
+    "log_timestamp": "20-04-2026 20:36",
+    "src_ip": "192.168.1.8",
+    "dst_ip": "192.168.1.7",
+    "src_port": 53050,
+    "dst_port": 3001,
+    "protocol": 6,
+    "bytes_sent": 243,
+    "bytes_received": 3419,
+    "flags": 24,
+    "duration": 1.53,
+    "decision": "ALLOW",
+    "reason": "Allowed with confidence 0.9995",
+    "confidence": 0.9995,
+    "explanation": {
+      "decision": "ALLOW",
+      "confidence": 0.9995,
+      "summary": "Classified as normal based on: Bytes Sent (importance=0.2174); Destination Port (importance=0.1669); Hour of Day (0-23) (importance=0.0996)",
+      "key_factors": [
+        {
+          "feature": "Bytes Sent",
+          "value": 243.0,
+          "description": "Data volume: 243.0 B",
+          "importance": 0.2174
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.1669
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 20.0,
+          "description": "Hour 20",
+          "importance": 0.0996
+        }
+      ],
+      "all_features": [
+        {
+          "feature": "Source Port",
+          "value": 53050.0,
+          "description": "",
+          "importance": 0.0172
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.1669
+        },
+        {
+          "feature": "Protocol (6=TCP, 17=UDP, etc.)",
+          "value": 6.0,
+          "description": "",
+          "importance": 0.0129
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 243.0,
+          "description": "Data volume: 243.0 B",
+          "importance": 0.2174
+        },
+        {
+          "feature": "Bytes Received",
+          "value": 3419.0,
+          "description": "",
+          "importance": 0.0051
+        },
+        {
+          "feature": "TCP Flags (control bits)",
+          "value": 24.0,
+          "description": "PSH-ACK (Data push with acknowledgment)",
+          "importance": 0.0012
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 1.53,
+          "description": "1.53 seconds",
+          "importance": 0.0015
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 20.0,
+          "description": "Hour 20",
+          "importance": 0.0996
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-20T20:36:41.253796",
+    "log_timestamp": "20-04-2026 20:36",
+    "src_ip": "192.168.1.8",
+    "dst_ip": "192.168.1.7",
+    "src_port": 48181,
+    "dst_port": 3001,
+    "protocol": 6,
+    "bytes_sent": 902,
+    "bytes_received": 3322,
+    "flags": 24,
+    "duration": 0.29,
+    "decision": "ALLOW",
+    "reason": "Allowed with confidence 0.9975",
+    "confidence": 0.9975,
+    "explanation": {
+      "decision": "ALLOW",
+      "confidence": 0.9975,
+      "summary": "Classified as normal based on: Bytes Sent (importance=0.2233); Destination Port (importance=0.2061); Connection Duration (seconds) (importance=0.0599)",
+      "key_factors": [
+        {
+          "feature": "Bytes Sent",
+          "value": 902.0,
+          "description": "Data volume: 902.0 B",
+          "importance": 0.2233
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.2061
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 0.29,
+          "description": "0.29 seconds",
+          "importance": 0.0599
+        }
+      ],
+      "all_features": [
+        {
+          "feature": "Source Port",
+          "value": 48181.0,
+          "description": "",
+          "importance": 0.0202
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.2061
+        },
+        {
+          "feature": "Protocol (6=TCP, 17=UDP, etc.)",
+          "value": 6.0,
+          "description": "",
+          "importance": 0.0226
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 902.0,
+          "description": "Data volume: 902.0 B",
+          "importance": 0.2233
+        },
+        {
+          "feature": "Bytes Received",
+          "value": 3322.0,
+          "description": "",
+          "importance": 0.0075
+        },
+        {
+          "feature": "TCP Flags (control bits)",
+          "value": 24.0,
+          "description": "PSH-ACK (Data push with acknowledgment)",
+          "importance": 0.0009
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 0.29,
+          "description": "0.29 seconds",
+          "importance": 0.0599
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 20.0,
+          "description": "Hour 20",
+          "importance": 0.0325
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-20T20:37:23.388056",
+    "log_timestamp": "20-04-2026 20:37",
+    "src_ip": "192.168.1.8",
+    "dst_ip": "192.168.1.7",
+    "src_port": 58562,
+    "dst_port": 3001,
+    "protocol": 6,
+    "bytes_sent": 963,
+    "bytes_received": 4988,
+    "flags": 24,
+    "duration": 0.4,
+    "decision": "REJECT",
+    "reason": "Blacklisted",
+    "confidence": 1.0,
+    "explanation": null
+  },
+  {
+    "timestamp": "2026-04-20T20:39:46.695038",
+    "log_timestamp": "20-04-2026 20:39",
+    "src_ip": "192.168.1.8",
+    "dst_ip": "192.168.1.7",
+    "src_port": 44663,
+    "dst_port": 3001,
+    "protocol": 6,
+    "bytes_sent": 876,
+    "bytes_received": 5510,
+    "flags": 24,
+    "duration": 0.36,
+    "decision": "ALLOW",
+    "reason": "Allowed with confidence 0.9985",
+    "confidence": 0.9985,
+    "explanation": {
+      "decision": "ALLOW",
+      "confidence": 0.9985,
+      "summary": "Classified as normal based on: Bytes Sent (importance=0.1762); Destination Port (importance=0.1623); Connection Duration (seconds) (importance=0.0407)",
+      "key_factors": [
+        {
+          "feature": "Bytes Sent",
+          "value": 876.0,
+          "description": "Data volume: 876.0 B",
+          "importance": 0.1762
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.1623
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 0.36,
+          "description": "0.36 seconds",
+          "importance": 0.0407
+        }
+      ],
+      "all_features": [
+        {
+          "feature": "Source Port",
+          "value": 44663.0,
+          "description": "",
+          "importance": 0.0129
+        },
+        {
+          "feature": "Destination Port",
+          "value": 3001.0,
+          "description": "Registered user port",
+          "importance": 0.1623
+        },
+        {
+          "feature": "Protocol (6=TCP, 17=UDP, etc.)",
+          "value": 6.0,
+          "description": "",
+          "importance": 0.0163
+        },
+        {
+          "feature": "Bytes Sent",
+          "value": 876.0,
+          "description": "Data volume: 876.0 B",
+          "importance": 0.1762
+        },
+        {
+          "feature": "Bytes Received",
+          "value": 5510.0,
+          "description": "",
+          "importance": 0.0011
+        },
+        {
+          "feature": "TCP Flags (control bits)",
+          "value": 24.0,
+          "description": "PSH-ACK (Data push with acknowledgment)",
+          "importance": 0.0008
+        },
+        {
+          "feature": "Connection Duration (seconds)",
+          "value": 0.36,
+          "description": "0.36 seconds",
+          "importance": 0.0407
+        },
+        {
+          "feature": "Hour of Day (0-23)",
+          "value": 20.0,
+          "description": "Hour 20",
+          "importance": 0.0068
+        }
+      ]
+    }
+  }
+]

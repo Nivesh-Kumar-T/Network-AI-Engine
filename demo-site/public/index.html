@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SecureBank — Online Banking</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Firewall overlay ── */
+  #fw-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+  }
+
+  #fw-box {
+    background: #111318;
+    border: 1px solid #1e2530;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0;
+  }
+
+  .fw-scanning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .fw-spinner {
+    width: 48px; height: 48px;
+    border: 3px solid #1e2530;
+    border-top-color: #00e5a0;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .fw-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e2e8f0;
+  }
+
+  .fw-sub {
+    font-size: 12px;
+    color: #64748b;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* Decision states */
+  .fw-allow { border-color: #00e5a030; }
+  .fw-reject { border-color: #ff4b6e30; }
+
+  .verdict-icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+  }
+
+  .verdict-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .verdict-title.allow { color: #00e5a0; }
+  .verdict-title.reject { color: #ff4b6e; }
+
+  .verdict-reason {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .verdict-ip {
+    background: #1e2530;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .verdict-ip span { color: #e2e8f0; }
+
+  /* Factors */
+  .factors-title {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #475569;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .factor-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .factor-name {
+    font-size: 12px;
+    color: #94a3b8;
+    flex: 1;
+  }
+
+  .factor-desc {
+    font-size: 12px;
+    color: #e2e8f0;
+    flex: 2;
+  }
+
+  .factor-bar-wrap {
+    flex: 1;
+    height: 3px;
+    background: #1e2530;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .factor-bar {
+    height: 100%;
+    border-radius: 2px;
+    background: #00e5a0;
+  }
+
+  .factor-bar.reject { background: #ff4b6e; }
+
+  .proceed-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #00e5a0;
+    color: #0a0c10;
+    margin-top: 4px;
+    transition: opacity 0.2s;
+  }
+
+  .proceed-btn:hover { opacity: 0.85; }
+
+  .blocked-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ff4b6e30;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: default;
+    background: #ff4b6e15;
+    color: #ff4b6e;
+    margin-top: 4px;
+  }
+
+  /* ── Bank site ── */
+  nav {
+    background: #1e3a5f;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+  }
+
+  .nav-logo { font-size: 20px; font-weight: 700; }
+  .nav-sub { font-size: 12px; color: #93c5fd; }
+
+  .hero {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1e4080 100%);
+    padding: 60px 24px;
+    text-align: center;
+    color: white;
+  }
+
+  .hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+  .hero p { font-size: 16px; color: #93c5fd; margin-bottom: 32px; }
+
+  .login-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 380px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .login-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .login-field {
+    margin-bottom: 14px;
+  }
+
+  .login-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 6px;
+  }
+
+  .login-field input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .login-field input:focus {
+    border-color: #1e3a5f;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 13px;
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 40px 24px;
+    flex-wrap: wrap;
+  }
+
+  .feature-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .feature-icon { font-size: 32px; margin-bottom: 10px; }
+  .feature-title { font-weight: 600; color: #1e293b; margin-bottom: 4px; }
+  .feature-desc { font-size: 13px; color: #64748b; }
+
+  footer {
+    background: #1e293b;
+    color: #64748b;
+    text-align: center;
+    padding: 16px;
+    font-size: 13px;
+    margin-top: auto;
+  }
+
+  .confidence-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+  }
+
+  .cb-allow { background: #00e5a020; color: #00e5a0; }
+  .cb-reject { background: #ff4b6e20; color: #ff4b6e; }
+</style>
+</head>
+<body>
+
+<!-- Firewall overlay shown immediately -->
+<div id="fw-overlay">
+  <div id="fw-box">
+    <div class="fw-scanning">
+      <div class="fw-spinner"></div>
+      <div class="fw-title">🛡️ NetGuard AI Firewall</div>
+      <div class="fw-sub">Scanning incoming connection...</div>
+      <div class="fw-sub" id="fw-ip-line">Analyzing request metadata</div>
+    </div>
+  </div>
+</div>
+
+<!-- Bank website (behind overlay) -->
+<nav>
+  <div>
+    <div class="nav-logo">🏦 SecureBank</div>
+    <div class="nav-sub">Protected by NetGuard AI Firewall</div>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Welcome to SecureBank</h1>
+  <p>Your trusted partner for digital banking</p>
+  <div class="login-card">
+    <h2>Sign In</h2>
+    <div class="login-field">
+      <label>Username</label>
+      <input type="text" placeholder="Enter username"/>
+    </div>
+    <div class="login-field">
+      <label>Password</label>
+      <input type="password" placeholder="Enter password"/>
+    </div>
+    <button class="login-btn">Login →</button>
+  </div>
+</div>
+
+<div class="features">
+  <div class="feature-card">
+    <div class="feature-icon">💳</div>
+    <div class="feature-title">Payments</div>
+    <div class="feature-desc">Instant transfers worldwide</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">📈</div>
+    <div class="feature-title">Investments</div>
+    <div class="feature-desc">Grow your portfolio</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🔒</div>
+    <div class="feature-title">Security</div>
+    <div class="feature-desc">AI-powered protection</div>
+  </div>
+</div>
+
+<footer>© 2025 SecureBank. Protected by NetGuard AI Engine.</footer>
+
+<script>
+(async () => {
+  const overlay = document.getElementById('fw-overlay');
+  const box = document.getElementById('fw-box');
+  const ipLine = document.getElementById('fw-ip-line');
+
+  // Simulate reading connection details
+  const byteSent = Math.floor(Math.random() * 800) + 200;
+  const byteRecv = Math.floor(Math.random() * 5000) + 1000;
+  const duration = (Math.random() * 1.5 + 0.1).toFixed(2);
+  const srcPort = Math.floor(Math.random() * 20000) + 40000;
+
+  ipLine.textContent = `Port ${srcPort} → Inspecting headers...`;
+
+  let result;
+  try {
+    const resp = await fetch('/check-visitor', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        src_port: srcPort,
+        bytes_sent: byteSent,
+        bytes_received: byteRecv,
+        duration: parseFloat(duration),
+      })
+    });
+    result = await resp.json();
+  } catch(e) {
+    // Engine down — allow through
+    overlay.style.display = 'none';
+    return;
+  }
+
+  const decision = result?.result?.explanation?.decision || result?.result?.decision || 'ALLOW';
+  const confidence = result?.result?.explanation?.confidence ?? result?.result?.confidence;
+  const reason = result?.result?.reason || '';
+  const keyFactors = result?.result?.explanation?.key_factors || [];
+  const srcIp = result?.log?.src_ip || 'unknown';
+  const isAllow = decision === 'ALLOW';
+  const maxImp = Math.max(...keyFactors.map(f => f.importance || 0), 0.0001);
+
+  // Build result UI
+  box.className = isAllow ? 'fw-allow' : 'fw-reject';
+  box.innerHTML = `
+    <div class="verdict-icon">${isAllow ? '✅' : '🚫'}</div>
+    <div class="verdict-title ${isAllow ? 'allow' : 'reject'}">
+      ${isAllow ? 'Access Granted' : 'Access Denied'}
+      ${confidence !== undefined ? `<span class="confidence-badge ${isAllow ? 'cb-allow' : 'cb-reject'}" style="font-size:13px;margin-left:8px">${(confidence*100).toFixed(1)}%</span>` : ''}
+    </div>
+    <div class="verdict-reason">${reason || (isAllow ? 'This connection appears normal and safe.' : 'This connection was flagged as potentially malicious.')}</div>
+
+    <div class="verdict-ip">
+      Your IP: <span>${srcIp}</span><br/>
+      Port: <span>${srcPort}</span> → <span>3001</span><br/>
+      Data: <span>${byteSent}B</span> sent / <span>${byteRecv}B</span> received<br/>
+      Duration: <span>${duration}s</span>
+    </div>
+
+    ${keyFactors.length ? `
+      <div class="factors-title">Key Factors in Decision</div>
+      ${keyFactors.map(f => `
+        <div class="factor-row">
+          <div class="factor-name">${f.feature}</div>
+          <div class="factor-desc">${f.description || f.value}</div>
+          <div class="factor-bar-wrap">
+            <div class="factor-bar ${isAllow ? '' : 'reject'}" style="width:${((f.importance||0)/maxImp*100).toFixed(0)}%"></div>
+          </div>
+        </div>
+      `).join('')}
+    ` : ''}
+
+    ${isAllow
+      ? `<button class="proceed-btn" onclick="document.getElementById('fw-overlay').style.display='none'">Continue to SecureBank →</button>`
+      : `<div class="blocked-btn">🚫 Access Blocked by Firewall</div>`
+    }
+  `;
+})();
+</script>
+</body>
+</html>
